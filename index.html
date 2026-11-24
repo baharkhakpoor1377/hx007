@@ -633,6 +633,8 @@ const COLORS = {
 };
 const SIZES = ['S','M','L','XL','XXL'];
 const PRODUCTS = [
+  {id:'th1',cat:'hoodies',name:'Test Hoodie 1',price:1,colors:['black','charcoal'],kind:'hoodie',img:'',desc:'Test product for checkout. Heavyweight fleece with a structured hood.'},
+  {id:'th2',cat:'hoodies',name:'Test Hoodie 2',price:2,colors:['navy','black'],kind:'hoodie',img:'',desc:'Test product for checkout. Heavyweight fleece with a structured hood.'}
 ];
 
 /* ============ GARMENT ART (placeholders on white) ============ */
@@ -864,7 +866,7 @@ document.addEventListener('click', e => {
   if ('add' in d) return addToCart();
   if (d.lq) { const [i,n] = d.lq.split(':'); state.cart[i].qty += +n; if (state.cart[i].qty < 1) state.cart.splice(i,1); return renderModal(); }
   if (d.rm) { state.cart.splice(+d.rm,1); return renderModal(); }
-  if ('checkout' in d) { if (!state.agree) { state.agreeErr = true; return renderModal(); } $('#co').textContent = 'Checkout isn’t connected yet — this is the storefront design.'; }
+  if ('checkout' in d) { if (!state.agree) { state.agreeErr = true; return renderModal(); } const co=$('#co'); co.textContent='Taking you to secure checkout…'; fetch('/api/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({currency:CUR,items:state.cart.map(i=>({id:i.id,color:i.color,size:i.size,qty:i.qty}))})}).then(r=>r.json()).then(j=>{ if(j&&j.url){location.href=j.url}else{co.textContent=(j&&j.error)||'Checkout failed. Please try again.'} }).catch(()=>{co.textContent='Checkout failed. Please try again.'}); }
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && (state.modal || state.drawer)) { state.modal = null; state.drawer = false; renderModal(); }
