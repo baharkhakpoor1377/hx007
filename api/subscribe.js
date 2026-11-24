@@ -3,6 +3,12 @@
 const crypto = require('crypto');
 const { st, hasKey } = require('./_stripe');
 const CHARS = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // no look-alike letters (0/O, 1/I/L)
+function normalize(e) {
+  let [l, d] = e.split('@');
+  l = l.split('+')[0];
+  if (d === 'gmail.com' || d === 'googlemail.com') { l = l.replace(/\./g, ''); d = 'gmail.com'; }
+  return l + '@' + d;
+}
 const makeCode = () => 'HX-' + Array.from({ length: 4 }, () => CHARS[crypto.randomInt(CHARS.length)]).join('');
 
 module.exports = async (req, res) => {
@@ -15,10 +21,15 @@ module.exports = async (req, res) => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 120) { res.status(400).json({ error: 'Please enter a valid email.' }); return; }
     if (body.consent !== true) { res.status(400).json({ error: 'Please tick the box to receive your code.' }); return; }
 
-    // Same email gets the same code back.
-    const found = await st('/customers', 'GET', new URLSearchParams({ email, limit: '1' }));
-    const existing = found.ok && found.j.data && found.j.data[0];
-    if (existing && existing.metadata && existing.metadata.hx_code) { res.status(200).json({ code: existing.metadata.hx_code }); return; }
+    // One welcome code per person, ever. Treat name+tag@gmail.com and n.a.me@gmail.com as the same inbox.
+    const key = normalize(email);
+    const bySearch = await st('/customers/search', 'GET', new URLSearchParams({ query: `metadata['hx_key']:'${key.replace(/'/g, '')}'`, limit: '1' }));
+    const byEmail = await st('/customers', 'GET', new URLSearchParams({ email, limit: '1' }));
+    const hit = (bySearch.ok && bySearch.j.data && bySearch.j.data[0]) || null;
+    const existing = hit || (byEmail.ok && byEmail.j.data && byEmail.j.data[0]) || null;
+    if (existing && existing.metadata && existing.metadata.hx_code) {
+      res.status(409).json({ error: 'This email has already claimed its welcome code. It can only be used once.' }); return;
+    }
 
     // One shared 10% coupon, created the first time.
     const c = await st('/coupons/HX10', 'GET');
@@ -41,7 +52,7 @@ module.exports = async (req, res) => {
     // Save the email for marketing.
     const meta = new URLSearchParams({
       email, 'metadata[marketing_consent]': 'yes', 'metadata[source]': 'welcome popup',
-      'metadata[hx_code]': code, 'metadata[consent_at]': new Date().toISOString()
+      'metadata[hx_code]': code, 'metadata[hx_key]': key, 'metadata[consent_at]': new Date().toISOString()
     });
     await st(existing ? '/customers/' + existing.id : '/customers', 'POST', meta);
 
