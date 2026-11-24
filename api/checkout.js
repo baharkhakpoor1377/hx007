@@ -33,6 +33,7 @@ module.exports = async (req, res) => {
     if (!n) { res.status(400).json({ error: 'Your cart is empty.' }); return; }
     const origin = process.env.SITE_URL || `https://${req.headers.host}`;
     p.append('mode', 'payment');
+    p.append('phone_number_collection[enabled]', 'true');
     p.append('success_url', `${origin}/success.html`);
     p.append('cancel_url', `${origin}/#shop`);
     p.append('shipping_address_collection[allowed_countries][0]', 'CA');
