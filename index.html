@@ -653,7 +653,7 @@ const COLORS = {
   charcoalm:['Charcoal Melange','#4a4a50','#35353a']
 };
 const SIZES = ['S','M','L','XL','XXL'];
-window.PROMO_IMAGES = ['img/promo-1.webp','img/promo-2.webp','img/promo-3.webp','img/promo-4.webp','img/promo-5.webp'];
+window.PROMO_IMAGES = ['img/promo-1.webp','img/promo-2.webp','img/promo-4.webp','img/promo-5.webp'];
 const PRODUCTS = [
   {id:'t2',cat:'honterx',name:"Ember Paw II Oversized Tee",price:45,colors:['white'],kind:'tee',imgs:["img/p/t2-back.webp", "img/p/t2-front.webp", "img/p/t2-left.webp", "img/p/t2-right.webp"],desc:"Oversized, high-neck organic cotton tee with a small paw print on the chest."},
   {id:'t4',cat:'honterx',name:"Wild Paw Oversized Tee",price:45,colors:['white'],kind:'tee',imgs:["img/p/t4-back.webp", "img/p/t4-front.webp", "img/p/t4-left.webp", "img/p/t4-right.webp"],desc:"Oversized, high-neck organic cotton tee with a small paw print on the chest."},
@@ -800,6 +800,7 @@ function renderGrid(anim){
   const list = PRODUCTS.filter(p => state.filter === 'all' || p.cat === state.filter || (state.filter === 'honterx' && p.hx));
   const promo = i => { let src=''; try{src=localStorage.getItem('hx-promo-'+i)||''}catch(e){} const u=(window.PROMO_IMAGES||[])[i]||src;
     return `<label class="glass pslot" data-promo="${i}">${u?`<img src="${u}" alt="Promotion">`:`<span class="pi"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 16V5M7.5 9.5L12 5l4.5 4.5M4 15v4h16v-4"/></svg><b>Promotional photo</b><small>Tap to upload</small></span>`}<input type="file" accept="image/*" hidden data-promoin="${i}"></label>`; };
+  const STEP = Math.max(3, Math.min(7, Math.floor(list.length/4)));
   const cards = [];
   $('#grid').innerHTML = list.map((p,ix) => {
     const c = state.pick[p.id], sz = state.size[p.id] || '';
@@ -818,7 +819,7 @@ function renderGrid(anim){
           </div>
         </div>
         <div class="cerr" role="alert">${state.cerr[p.id] || ''}</div>
-      </div></article>` + (((ix+1)%3===0) ? promo((ix+1)/3-1) : ''); }).join('');
+      </div></article>` + (((ix+1)%STEP===0 && (ix+1)/STEP<=4) ? promo((ix+1)/STEP-1) : ''); }).join('');
   observe();
 }
 function renderModal(){
