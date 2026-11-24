@@ -2,8 +2,41 @@
 // Needs the STRIPE_SECRET_KEY environment variable in Vercel.
 // Prices live here (server side) so nobody can change them in the browser.
 const PRODUCTS = {
-  th1: { name: 'Høntérx Test Hoodie 1', price: 1 },
-  th2: { name: 'Høntérx Test Hoodie 2', price: 2 }
+  t1: { name: "H\u00f8nt\u00e9rx Ember Paw Oversized Tee", price: 45 },
+  t2: { name: "H\u00f8nt\u00e9rx Ember Paw II Oversized Tee", price: 45 },
+  t3: { name: "H\u00f8nt\u00e9rx Ember Paw III Oversized Tee", price: 45 },
+  t4: { name: "H\u00f8nt\u00e9rx Wild Paw Oversized Tee", price: 45 },
+  t5: { name: "H\u00f8nt\u00e9rx Shadow Paw Oversized Tee", price: 45 },
+  t6: { name: "H\u00f8nt\u00e9rx Prism Paw Oversized Tee", price: 45 },
+  t7: { name: "H\u00f8nt\u00e9rx Prism Paw II Oversized Tee", price: 45 },
+  t8: { name: "H\u00f8nt\u00e9rx Liberty Paw Oversized Tee", price: 45 },
+  t9: { name: "H\u00f8nt\u00e9rx Liberty Paw II Oversized Tee", price: 45 },
+  t10: { name: "H\u00f8nt\u00e9rx Crimson Paw Oversized Tee", price: 45 },
+  t11: { name: "H\u00f8nt\u00e9rx Navy Paw Oversized Tee", price: 45 },
+  t12: { name: "H\u00f8nt\u00e9rx HonterX Collage Oversized Tee", price: 45 },
+  h1: { name: "H\u00f8nt\u00e9rx Midnight Blue Paw Hoodie", price: 85 },
+  h2: { name: "H\u00f8nt\u00e9rx Crimson Paw Hoodie", price: 85 },
+  h3: { name: "H\u00f8nt\u00e9rx Carolina Blue Paw Hoodie", price: 85 },
+  h4: { name: "H\u00f8nt\u00e9rx Forest Green Paw Hoodie", price: 85 },
+  h5: { name: "H\u00f8nt\u00e9rx Gold Paw Hoodie", price: 85 },
+  h6: { name: "H\u00f8nt\u00e9rx Burgundy Paw Hoodie", price: 85 },
+  h7: { name: "H\u00f8nt\u00e9rx Cobalt Paw Hoodie", price: 85 },
+  h8: { name: "H\u00f8nt\u00e9rx Moss Paw Hoodie", price: 85 },
+  h9: { name: "H\u00f8nt\u00e9rx Blood Paw Hoodie", price: 85 },
+  h10: { name: "H\u00f8nt\u00e9rx Bronze Paw Hoodie", price: 85 },
+  h11: { name: "H\u00f8nt\u00e9rx Ember Paw Hoodie", price: 85 },
+  h12: { name: "H\u00f8nt\u00e9rx Prism Paw Hoodie", price: 85 },
+  t13: { name: "H\u00f8nt\u00e9rx Ice Paw Oversized Tee", price: 45 },
+  h13: { name: "H\u00f8nt\u00e9rx Latte Paw Hoodie", price: 85 },
+  h14: { name: "H\u00f8nt\u00e9rx Navy Blazer Paw Hoodie", price: 85 },
+  h15: { name: "H\u00f8nt\u00e9rx Royal Paw Hoodie", price: 85 },
+  h16: { name: "H\u00f8nt\u00e9rx Military Green Paw Hoodie", price: 85 },
+  h17: { name: "H\u00f8nt\u00e9rx Sky Paw Hoodie", price: 85 },
+  h18: { name: "H\u00f8nt\u00e9rx Royal Gold Paw Hoodie", price: 85 },
+  j1: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket", price: 120 },
+  j2: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Navy)", price: 120 },
+  j3: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Khaki)", price: 120 },
+  j4: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Red Brown)", price: 120 }
 };
 const FREE_SHIPPING_OVER = 150; // free shipping over this subtotal
 const FLAT_SHIPPING = 12;       // otherwise this flat rate
