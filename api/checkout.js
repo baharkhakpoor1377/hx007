@@ -23,8 +23,6 @@ const PRODUCTS = {
   h11: { name: "H\u00f8nt\u00e9rx Ember Paw Hoodie", price: 85 },
   h12: { name: "H\u00f8nt\u00e9rx Prism Paw Hoodie", price: 85 },
   t13: { name: "H\u00f8nt\u00e9rx Ice Paw Oversized Tee", price: 45 },
-  h13: { name: "H\u00f8nt\u00e9rx Latte Paw Hoodie", price: 85 },
-  h14: { name: "H\u00f8nt\u00e9rx Navy Blazer Paw Hoodie", price: 85 },
   h15: { name: "H\u00f8nt\u00e9rx Royal Paw Hoodie", price: 85 },
   h16: { name: "H\u00f8nt\u00e9rx Military Green Paw Hoodie", price: 85 },
   h17: { name: "H\u00f8nt\u00e9rx Sky Paw Hoodie", price: 85 },
