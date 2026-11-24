@@ -944,7 +944,7 @@ var cp=e.target.closest&&e.target.closest('[data-copycode]');if(cp){copyText(cp.
 (function(){var el=document.getElementById('offer');if(!el)return;var KEY='hx-offer';var seen=false;try{seen=!!localStorage.getItem(KEY)}catch(e){}
 function open(){el.hidden=false;requestAnimationFrame(function(){el.classList.add('on')});setTimeout(function(){var i=document.getElementById('offE');i&&i.focus&&i.focus({preventScroll:true})},400)}
 function close(){el.classList.remove('on');setTimeout(function(){el.hidden=true},350);try{localStorage.setItem(KEY,'1')}catch(e){}}
-if(!seen)setTimeout(open,8000);
+if(!seen)setTimeout(open,5000);
 document.getElementById('offX').onclick=close;el.addEventListener('click',function(e){if(e.target===el)close()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&el.classList.contains('on'))close()});
 var m=document.getElementById('offM');
