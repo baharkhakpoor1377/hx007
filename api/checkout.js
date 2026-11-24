@@ -8,6 +8,8 @@ const PRODUCTS = {
 const FREE_SHIPPING_OVER = 150; // free shipping over this subtotal
 const FLAT_SHIPPING = 12;       // otherwise this flat rate
 
+const { findCode } = require('./_stripe');
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') { res.status(405).json({ error: 'Method not allowed' }); return; }
   const key = process.env.STRIPE_SECRET_KEY;
@@ -34,6 +36,13 @@ module.exports = async (req, res) => {
     const origin = process.env.SITE_URL || `https://${req.headers.host}`;
     p.append('mode', 'payment');
     p.append('phone_number_collection[enabled]', 'true');
+    if (body.code) {
+      const hit = await findCode(body.code);
+      if (!hit) { res.status(400).json({ error: 'That discount code is no longer valid. Remove it and try again.' }); return; }
+      p.append('discounts[0][promotion_code]', hit.id); // 10% off the whole order
+    } else {
+      p.append('allow_promotion_codes', 'true');
+    }
     p.append('success_url', `${origin}/success.html`);
     p.append('cancel_url', `${origin}/#shop`);
     p.append('shipping_address_collection[allowed_countries][0]', 'CA');
