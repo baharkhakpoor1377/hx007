@@ -2,15 +2,11 @@
 // Needs the STRIPE_SECRET_KEY environment variable in Vercel.
 // Prices live here (server side) so nobody can change them in the browser.
 const PRODUCTS = {
-  t1: { name: "H\u00f8nt\u00e9rx Ember Paw Oversized Tee", price: 45 },
   t2: { name: "H\u00f8nt\u00e9rx Ember Paw II Oversized Tee", price: 45 },
-  t3: { name: "H\u00f8nt\u00e9rx Ember Paw III Oversized Tee", price: 45 },
   t4: { name: "H\u00f8nt\u00e9rx Wild Paw Oversized Tee", price: 45 },
   t5: { name: "H\u00f8nt\u00e9rx Shadow Paw Oversized Tee", price: 45 },
   t6: { name: "H\u00f8nt\u00e9rx Prism Paw Oversized Tee", price: 45 },
-  t7: { name: "H\u00f8nt\u00e9rx Prism Paw II Oversized Tee", price: 45 },
   t8: { name: "H\u00f8nt\u00e9rx Liberty Paw Oversized Tee", price: 45 },
-  t9: { name: "H\u00f8nt\u00e9rx Liberty Paw II Oversized Tee", price: 45 },
   t10: { name: "H\u00f8nt\u00e9rx Crimson Paw Oversized Tee", price: 45 },
   t11: { name: "H\u00f8nt\u00e9rx Navy Paw Oversized Tee", price: 45 },
   t12: { name: "H\u00f8nt\u00e9rx HonterX Collage Oversized Tee", price: 45 },
