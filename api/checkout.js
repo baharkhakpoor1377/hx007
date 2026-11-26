@@ -29,6 +29,7 @@ const PRODUCTS = {
   h18: { name: "H\u00f8nt\u00e9rx Royal Gold Paw Hoodie", price: 85 },
   h19: { name: "H\u00f8nt\u00e9rx Midnight Raglan Hoodie", price: 85 },
   h20: { name: "H\u00f8nt\u00e9rx Ivory Raglan Hoodie", price: 85 },
+  h21: { name: "H\u00f8nt\u00e9rx Gold Raglan Hoodie", price: 85 },
   j1: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket", price: 120 },
   j2: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Navy)", price: 120 },
   j3: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Khaki)", price: 120 },
