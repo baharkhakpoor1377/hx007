@@ -35,7 +35,8 @@ const PRODUCTS = {
   c2: { name: "H\u00f8nt\u00e9rx Lime Paw Cap", price: 35 },
   c3: { name: "H\u00f8nt\u00e9rx Gold Paw Cap (Royal)", price: 35 },
   c4: { name: "H\u00f8nt\u00e9rx Gold Paw Cap (Camo)", price: 35 },
-  c5: { name: "H\u00f8nt\u00e9rx Bronze Paw Cap (Dark Grey)", price: 35 }
+  c5: { name: "H\u00f8nt\u00e9rx Bronze Paw Cap (Dark Grey)", price: 35 },
+  c6: { name: "H\u00f8nt\u00e9rx Ember Paw Cap (Black)", price: 35 }
 };
 const FREE_SHIPPING_OVER = 150; // free shipping over this subtotal
 const FLAT_SHIPPING = 12;       // otherwise this flat rate
