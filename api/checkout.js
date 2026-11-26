@@ -31,6 +31,8 @@ const PRODUCTS = {
   j2: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Navy)", price: 120 },
   j3: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Khaki)", price: 120 },
   j4: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Red Brown)", price: 120 },
+  s1: { name: "H\u00f8nt\u00e9rx Midnight Paw Raglan Sweatshirt", price: 65 },
+  s2: { name: "H\u00f8nt\u00e9rx Ivory Paw Raglan Sweatshirt", price: 65 },
   c1: { name: "H\u00f8nt\u00e9rx Azure Paw Cap", price: 35 },
   c2: { name: "H\u00f8nt\u00e9rx Lime Paw Cap", price: 35 },
   c3: { name: "H\u00f8nt\u00e9rx Gold Paw Cap (Royal)", price: 35 },

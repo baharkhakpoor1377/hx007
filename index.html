@@ -773,6 +773,8 @@ const PRODUCTS = [
   {id:'j2',cat:'hoodies',name:"Sherpa Paw Jacket (Navy)",price:120,colors:['navy'],kind:'hoodie',imgs:["img/p/j2-front.webp", "img/p/j2-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
   {id:'j3',cat:'hoodies',name:"Sherpa Paw Jacket (Khaki)",price:120,colors:['khaki'],kind:'hoodie',imgs:["img/p/j3-front.webp", "img/p/j3-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
   {id:'j4',cat:'hoodies',name:"Sherpa Paw Jacket (Red Brown)",price:120,colors:['redbrown'],kind:'hoodie',imgs:["img/p/j4-front.webp", "img/p/j4-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
+  {id:'s1',cat:'sweatshirts',name:"Midnight Paw Raglan Sweatshirt",price:65,colors:['black'],kind:'sweatshirt',imgs:["img/p/s1-front.webp", "img/p/s1-back.webp", "img/p/s1-left.webp", "img/p/s1-right.webp"],desc:"Soft brushed fleece inside, smooth organic cotton outside, with raglan sleeves and an embroidered paw on the chest."},
+  {id:'s2',cat:'sweatshirts',name:"Ivory Paw Raglan Sweatshirt",price:65,colors:['white'],kind:'sweatshirt',imgs:["img/p/s2-front.webp", "img/p/s2-back.webp", "img/p/s2-left.webp", "img/p/s2-right.webp"],desc:"Soft brushed fleece inside, smooth organic cotton outside, with raglan sleeves and an embroidered paw on the chest."},
   {id:'c1',cat:'caps',name:"Azure Paw Cap",price:35,colors:['khaki'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c1-front.webp", "img/p/c1-back.webp", "img/p/c1-left.webp", "img/p/c1-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
   {id:'c2',cat:'caps',name:"Lime Paw Cap",price:35,colors:['olive'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c2-front.webp", "img/p/c2-back.webp", "img/p/c2-left.webp", "img/p/c2-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
   {id:'c3',cat:'caps',name:"Gold Paw Cap (Royal)",price:35,colors:['royal'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c3-front.webp", "img/p/c3-back.webp", "img/p/c3-left.webp", "img/p/c3-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
@@ -836,14 +838,17 @@ const CHARTS = {
 };
 function detailsOf(p){
   const hood = p.cat === 'hoodies', cap = p.cat === 'caps';
-  const long = cap ? `The ${p.name} is a structured Flexfit cap built to hold its shape. A 6-panel, mid-profile crown with a low-profile embroidery area carries a bold embroidered paw, finished with a curved visor and a silver undervisor. A stretch band gives a secure, comfortable fit in two sizes.`
+  const sw = p.cat === 'sweatshirts';
+  const long = sw ? `The ${p.name} is made to be worn far more than it hangs. Smooth 100% organic cotton outside keeps a clean look, while the brushed fleece inside is soft against the skin. Raglan sleeves, neck tape and 2×2 ribbed cuffs, collar and hem finish it, with a neat embroidered paw on the chest.`
+    : cap ? `The ${p.name} is a structured Flexfit cap built to hold its shape. A 6-panel, mid-profile crown with a low-profile embroidery area carries a bold embroidered paw, finished with a curved visor and a silver undervisor. A stretch band gives a secure, comfortable fit in two sizes.`
     : hood ? `The ${p.name} is built from heavyweight brushed fleece that is soft on the inside and holds its shape outside. ${p.kind==='zip'?'A full-length zip makes it easy to layer.':'A structured hood and kangaroo pocket keep it simple and sharp.'} ${p.boxy?'A wider body and dropped shoulders give it a relaxed silhouette.':'Athletic cut through the chest and shoulders.'}`
     : `The ${p.name} is cut from dense cotton jersey with a ribbed collar that keeps its shape wash after wash. ${p.boxy?'Boxy body and dropped shoulders for a heavier drape.':'Straight, clean cut that sits sharp on its own or layered.'}`;
-  const bullets = cap ? ['63% polyester, 34% cotton, 3% spandex twill','Structured 6-panel, mid-profile crown','6 embroidered eyelets and silver undervisor','Stretch band, two sizes (22"–23⅞")']
+  const bullets = sw ? ['100% organic cotton exterior, brushed fleece lining','Mid-weight 8.3 oz/yd² (280 g/m²) fabric','Raglan sleeves, side-seamed, neck tape','GOTS and OCS certified organic cotton']
+    : cap ? ['63% polyester, 34% cotton, 3% spandex twill','Structured 6-panel, mid-profile crown','6 embroidered eyelets and silver undervisor','Stretch band, two sizes (22"–23⅞")']
     : hood ? ['Heavyweight brushed fleece (about 400 gsm)','Double-layer hood with flat drawcord','Ribbed cuffs and hem','Machine wash cold inside out, tumble low']
     : ['Heavyweight combed cotton jersey','Ribbed crew collar','Pre-shrunk, garment washed','Machine wash cold inside out, tumble low'];
-  const fit = cap ? 'Two sizes. Stretch band for a secure fit.' : p.boxy ? 'Relaxed, boxy fit. Size down for a closer fit.' : hood ? 'Athletic fit. True to size.' : 'Regular fit. True to size.';
-  return {long, bullets, fit, chart: CHARTS[p.kind==='tee'?'tees':p.cat]};
+  const fit = sw ? 'Unisex fit. True to size.' : cap ? 'Two sizes. Stretch band for a secure fit.' : p.boxy ? 'Relaxed, boxy fit. Size down for a closer fit.' : hood ? 'Athletic fit. True to size.' : 'Regular fit. True to size.';
+  return {long, bullets, fit, chart: CHARTS[p.kind==='tee'?'tees':p.cat==='sweatshirts'?'hoodies':p.cat]};
 }
 
 /* ============ STATE ============ */
@@ -865,7 +870,7 @@ function renderHero(){
   $('#heroPhoto').innerHTML = HERO_IMG ? `<img src="${HERO_IMG}" alt="Høntérx collection">` : garment({...hero, name:'Heavyweight Pullover Hoodie'}, 'black');
 }
 function renderTabs(){
-  $('#tabs').innerHTML = [['all','All'],['hoodies','Hoodies'],['caps','Caps'],['honterx','HonterX']].map(([k,l]) =>
+  $('#tabs').innerHTML = [['all','All'],['hoodies','Hoodies'],['sweatshirts','Sweatshirts'],['caps','Caps'],['honterx','HonterX']].map(([k,l]) =>
     `<button class="tab ${state.filter===k?'on':''}" data-tab="${k}" aria-pressed="${state.filter===k}">${l}</button>`).join('');
   renderSheet();
 }
@@ -873,9 +878,10 @@ const FICON = {
  all:'<svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.8"/></svg>',
  hoodies:'<svg viewBox="0 0 24 24"><path d="M9 4.5Q12 8 15 4.5l5 2.5 1.5 8-3 .8-.5-4V20H6V11.8l-.5 4-3-.8L4 7z"/><path d="M10 10v3M14 10v3"/></svg>',
  tees:'<svg viewBox="0 0 24 24"><path d="M8.5 4Q12 7.5 15.5 4L21 6.5l-1.5 5-3-.8V20H7.5v-9.3l-3 .8-1.5-5z"/></svg>',
+ sweatshirts:'<svg viewBox="0 0 24 24"><path d="M9 4.5Q12 7 15 4.5l5.5 2.5 1 8.5-3 .6-.5-4V20H6V11.1l-.5 4-3-.6 1-8.5z"/><path d="M9 4.5Q12 7 15 4.5"/></svg>',
  caps:'<svg viewBox="0 0 24 24"><path d="M4.5 15.5Q4 7 12 6.5T19.5 15.5z"/><path d="M4.5 15.5Q12 14 19.5 15.5Q23 16 22 17.5Q12 20 3 17.5Q2 16 4.5 15.5z"/></svg>',
  honterx:'<svg viewBox="0 0 24 24"><path d="M12 3.5l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>'};
-const FCATS = [['all','All'],['hoodies','Hoodies'],['caps','Caps'],['honterx','HonterX']];
+const FCATS = [['all','All'],['hoodies','Hoodies'],['sweatshirts','Sweatshirts'],['caps','Caps'],['honterx','HonterX']];
 const fcount = k => PRODUCTS.filter(p => k === 'all' || p.cat === k || (k === 'honterx' && p.hx)).length;
 function renderSheet(){
   $('#frows').innerHTML = FCATS.map(([k,l]) => `<button class="frow ${state.filter===k?'on':''}" data-tab="${k}">${FICON[k]}${l}<span>${fcount(k)}</span></button>`).join('');
@@ -928,7 +934,7 @@ function renderModal(){
       <div class="gal gal-stack">${(()=>{ const vs = viewsOf(p);
         return vs.map(v=>`<div class="photo gal-main">${v.img?'<span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>':''}${viewHtml(p, v, m.color)}</div>`).join('') + `<label class="thumb add addph" title="Add a photo"><span>+</span><small>Add photo</small><input type="file" accept="image/*" multiple hidden data-phin="${p.id}"></label>`; })()}</div>
       <div class="m-info">
-        <div><div class="lab" style="margin-bottom:10px">${p.kind==='tee' ? 'T-shirt' : p.cat === 'caps' ? 'Cap' : 'Hoodie'}</div><h2 class="disp">${p.name}</h2></div>
+        <div><div class="lab" style="margin-bottom:10px">${p.kind==='tee' ? 'T-shirt' : p.cat === 'caps' ? 'Cap' : p.cat === 'sweatshirts' ? 'Sweatshirt' : 'Hoodie'}</div><h2 class="disp">${p.name}</h2></div>
         <div class="m-price">${money(p.price)}</div>
         <p class="m-desc">${detailsOf(p).long}</p>
         <div><div class="opt-label"><b>Color</b><span>${COLORS[m.color][0]}</span></div>
