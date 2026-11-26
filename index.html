@@ -548,6 +548,16 @@ body.sheet-open .fsheet{transform:none;visibility:visible}body.sheet-open .fshee
 .pslot{min-height:0}
 }
 .card .dots{display:none !important}
+
+/* floating info panel over the photo */
+.card{position:relative;background:#fff !important;border-color:#fff !important}
+.card .photo,.card .photo:has(>img),.card .photo:not(:has(>img)){aspect-ratio:1/1.32 !important;padding:26px 26px 200px !important}
+.card-body{position:absolute !important;left:14px;right:14px;bottom:14px;padding:20px 20px 18px !important;border-radius:24px;background:rgba(12,12,14,.93) !important;border:1px solid #2c2c2e;align-items:center;justify-content:flex-start !important;flex:none !important;z-index:3}
+.card h3{font-size:clamp(18px,1.5vw,22px) !important}
+.card .price{margin:6px 0 0 !important;font-size:18px !important;color:#d2d2d7}
+.card .buy{margin-top:16px !important;gap:10px !important;width:100% !important;padding:0 !important}
+.card .holo.wide.card-add .in,.card .go{height:46px !important}
+@media (max-width:680px){.card .photo,.card .photo:has(>img),.card .photo:not(:has(>img)){aspect-ratio:1/1.25 !important;padding:20px 20px 190px !important}.card-body{left:10px;right:10px;bottom:10px;padding:16px 14px 14px !important}}
 </style>
 </head>
 <body><div id="ld"><div class="box"><div class="fr"><img id="ldim" alt=""></div><div class="brand">HØNTÉRX</div><div class="pct" id="ldpc">000</div><div class="bar"><i id="ldbr"></i></div></div></div>
