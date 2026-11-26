@@ -577,6 +577,35 @@ body.sheet-open .fsheet{transform:none;visibility:visible}body.sheet-open .fshee
 .card .size{height:36px !important}
 .card-body{padding:14px 16px 10px !important}
 .card .price{margin:9px 0 0 !important}
+
+/* ===== mobile refinements ===== */
+.card-head{display:contents}.card .ns{display:none}
+@media (max-width:680px){
+/* announcement bar */
+.promo{padding:7px 0 !important}
+.promo .pi{font-size:10px !important;font-weight:300 !important;letter-spacing:.02em !important;padding:0 28px !important}
+/* hero: video first, text below the fold */
+.hero{padding:0 0 40px !important}
+.hero-vid video{aspect-ratio:auto !important;width:100%;height:calc(100svh - 150px) !important;max-height:none !important;object-fit:cover}
+.hero-copy{padding:26px 0 0 !important}
+.hero-copy .eyebrow{font-size:11px !important;margin:0 0 8px !important}
+.hero h1{font-size:30px !important;line-height:1.05 !important}
+.hero .tag{font-size:13px !important;margin-top:10px !important;line-height:1.5 !important}
+.links{gap:12px !important;margin-top:20px !important;flex-wrap:nowrap !important}
+.links .link{position:relative;font-size:13px !important;padding:10px 17px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#0b0b0d,#0b0b0d) padding-box,conic-gradient(from var(--a),#2b6c99 0deg,#6fb1ff 60deg,#e8883a 150deg,#ffd0a0 200deg,#8f6bff 270deg,#2b6c99 360deg) border-box;color:#f5f5f7 !important;isolation:isolate;animation:spin 5s linear infinite}
+.links .link i{font-size:17px}
+.links .link::after{content:"";position:absolute;inset:-3px;border-radius:inherit;background:conic-gradient(from var(--a),#2b6c99 0deg,#6fb1ff 60deg,#e8883a 150deg,#ffd0a0 200deg,#8f6bff 270deg,#2b6c99 360deg);filter:blur(10px);opacity:.45;z-index:-1;animation:spin 5s linear infinite}
+/* promo photo: show face and logo */
+.pslot{height:auto !important;aspect-ratio:816/1240 !important}
+.pslot img{object-position:50% 35% !important}
+/* product card: price left, short name right, more transparent panel */
+.card .nf{display:none}.card .ns{display:inline}
+.card-head{display:flex !important;justify-content:space-between;align-items:baseline;gap:12px;width:100%}
+.card-head .price{order:-1;margin:0 !important;font-size:16px !important;color:#f5f5f7 !important;font-weight:600}
+.card-head h3{font-size:16px !important;text-align:right;font-weight:500}
+.card-body{background:rgba(10,10,12,.55) !important;-webkit-backdrop-filter:blur(14px) brightness(.3);backdrop-filter:blur(14px) brightness(.3);border-color:rgba(255,255,255,.14) !important}
+.card .buy{margin-top:12px !important}
+}
 </style>
 </head>
 <body><div id="ld"><div class="box"><div class="fr"><img id="ldim" alt=""></div><div class="brand">HØNTÉRX</div><div class="pct" id="ldpc">000</div><div class="bar"><i id="ldbr"></i></div></div></div>
@@ -855,8 +884,8 @@ function renderGrid(anim){
     return `<article class="glass card rv ${seen.has(p.id)?'in':''}" data-id="${p.id}">
       <div data-open="${p.id}" role="button" tabindex="0" aria-label="View ${p.name}">${photo(p,c)}</div>
       <div class="card-body">
-        <h3 data-open="${p.id}">${p.name}</h3>
-        <div class="price">${money(p.price)}</div>
+        <div class="card-head"><h3 data-open="${p.id}"><span class="nf">${p.name}</span><span class="ns">${p.name.replace(/ Oversized/,'').replace(/ Paw(?= )/,'')}</span></h3>
+        <div class="price">${money(p.price)}</div></div>
         <div class="dots" role="group" aria-label="Colors">${p.colors.map(k => `<button class="dot ${k===c?'on':''}" data-dot="${p.id}:${k}" aria-label="${COLORS[k][0]}" style="background:${COLORS[k][1]}"></button>`).join('')}</div>
         <div class="buy">
           <div class="x2 ${state.open[p.id]?'open':''} ${state.added[p.id]?'done':''}">
