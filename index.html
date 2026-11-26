@@ -755,6 +755,7 @@ const PRODUCTS = [
   {id:'t7',cat:'honterx',name:"Phantom Oversized Tee (Black)",price:45,colors:['black'],kind:'tee',imgs:["img/p/t7-back.webp", "img/p/t7-front.webp", "img/p/t7-left.webp", "img/p/t7-right.webp"],desc:"Oversized, high-neck organic cotton tee with a small paw print on the chest."},
   {id:'t15',cat:'honterx',name:"Phantom Oversized Tee (White)",price:45,colors:['white'],kind:'tee',imgs:["img/p/t15-back.webp", "img/p/t15-front.webp", "img/p/t15-left.webp", "img/p/t15-right.webp"],desc:"Oversized, high-neck organic cotton tee with a small paw print on the chest."},
   {id:'t16',cat:'honterx',name:"Havoc Oversized Tee",price:45,colors:['white'],kind:'tee',imgs:["img/p/t16-front.webp", "img/p/t16-back.webp", "img/p/t16-left.webp", "img/p/t16-right.webp"],desc:"Oversized, high-neck organic cotton tee with a small paw print on the chest."},
+  {id:'t20',cat:'honterx',name:"Outlaw Oversized Tee",price:45,colors:['white'],kind:'tee',imgs:["img/p/t20-back.webp", "img/p/t20-front.webp", "img/p/t20-fold.webp", "img/p/t20-left.webp", "img/p/t20-right.webp"],desc:"Oversized, high-neck organic cotton tee with a small paw print on the chest."},
   {id:'t19',cat:'honterx',name:"Fang Oversized Tee (Black)",price:45,colors:['black'],kind:'tee',imgs:["img/p/t19-back.webp", "img/p/t19-front.webp", "img/p/t19-fold.webp", "img/p/t19-left.webp", "img/p/t19-right.webp"],desc:"Oversized, high-neck organic cotton tee with a small paw print on the chest."},
   {id:'t18',cat:'honterx',name:"Warrior Oversized Tee",price:45,colors:['white'],kind:'tee',imgs:["img/p/t18-front.webp", "img/p/t18-fold.webp", "img/p/t18-left.webp", "img/p/t18-back.webp"],desc:"Oversized, high-neck organic cotton tee with a small paw print on the chest."},
   {id:'t17',cat:'honterx',name:"Beast Oversized Tee",price:45,colors:['white'],kind:'tee',imgs:["img/p/t17-back.webp", "img/p/t17-front.webp", "img/p/t17-left.webp", "img/p/t17-right.webp"],desc:"Oversized, high-neck organic cotton tee with a small paw print on the chest."},
@@ -798,7 +799,7 @@ const PRODUCTS = [
   {id:'c6',cat:'caps',name:"Ember Paw Cap (Black)",price:35,colors:['black'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c6-front.webp", "img/p/c6-back.webp", "img/p/c6-left.webp", "img/p/c6-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
 ];
 /* newest first */
-(function(){const N=['t19','t18','t17','t16','t15','t7','t14','h21','h20','h19','s3','s2','s1','c6','c5','c4','c3','c2','c1'];const r=id=>{const i=N.indexOf(id);return i<0?999:i};PRODUCTS.sort((x,y)=>r(x.id)-r(y.id))})();
+(function(){const N=['t20','t19','t18','t17','t16','t15','t7','t14','h21','h20','h19','s3','s2','s1','c6','c5','c4','c3','c2','c1'];const r=id=>{const i=N.indexOf(id);return i<0?999:i};PRODUCTS.sort((x,y)=>r(x.id)-r(y.id))})();
 
 /* ============ GARMENT ART (placeholders on white) ============ */
 const inkFor = hex => { const n=parseInt(hex.slice(1),16),r=n>>16,g=(n>>8)&255,b=n&255; return (r*.3+g*.59+b*.11)>150 ? '#1b1b1d' : '#ececef'; };
