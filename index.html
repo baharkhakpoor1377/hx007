@@ -773,12 +773,12 @@ const PRODUCTS = [
   {id:'j2',cat:'hoodies',name:"Sherpa Paw Jacket (Navy)",price:120,colors:['navy'],kind:'hoodie',imgs:["img/p/j2-front.webp", "img/p/j2-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
   {id:'j3',cat:'hoodies',name:"Sherpa Paw Jacket (Khaki)",price:120,colors:['khaki'],kind:'hoodie',imgs:["img/p/j3-front.webp", "img/p/j3-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
   {id:'j4',cat:'hoodies',name:"Sherpa Paw Jacket (Red Brown)",price:120,colors:['redbrown'],kind:'hoodie',imgs:["img/p/j4-front.webp", "img/p/j4-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
-  {id:'c1',cat:'caps',name:"Azure Paw Cap",price:35,colors:['khaki'],kind:'cap',sizes:['One size'],imgs:["img/p/c1-front.webp", "img/p/c1-back.webp", "img/p/c1-left.webp", "img/p/c1-right.webp"],desc:"Structured closed-back cap with a curved brim and an embroidered paw on the front."},
-  {id:'c2',cat:'caps',name:"Lime Paw Cap",price:35,colors:['olive'],kind:'cap',sizes:['One size'],imgs:["img/p/c2-front.webp", "img/p/c2-back.webp", "img/p/c2-left.webp", "img/p/c2-right.webp"],desc:"Structured closed-back cap with a curved brim and an embroidered paw on the front."},
-  {id:'c3',cat:'caps',name:"Gold Paw Cap (Royal)",price:35,colors:['royal'],kind:'cap',sizes:['One size'],imgs:["img/p/c3-front.webp", "img/p/c3-back.webp", "img/p/c3-left.webp", "img/p/c3-right.webp"],desc:"Structured closed-back cap with a curved brim and an embroidered paw on the front."},
-  {id:'c4',cat:'caps',name:"Gold Paw Cap (Camo)",price:35,colors:['camo'],kind:'cap',sizes:['One size'],imgs:["img/p/c4-front.webp", "img/p/c4-back.webp", "img/p/c4-left.webp", "img/p/c4-right.webp"],desc:"Structured closed-back cap in multicam black with a curved brim and an embroidered paw on the front."},
-  {id:'c5',cat:'caps',name:"Bronze Paw Cap (Dark Grey)",price:35,colors:['darkgrey'],kind:'cap',sizes:['One size'],imgs:["img/p/c5-front.webp", "img/p/c5-back.webp", "img/p/c5-left.webp", "img/p/c5-right.webp"],desc:"Structured closed-back cap in dark grey with a curved brim and an embroidered paw on the front."},
-  {id:'c6',cat:'caps',name:"Ember Paw Cap (Black)",price:35,colors:['black'],kind:'cap',sizes:['One size'],imgs:["img/p/c6-front.webp", "img/p/c6-back.webp", "img/p/c6-left.webp", "img/p/c6-right.webp"],desc:"Structured closed-back cap in black with a curved brim and an embroidered paw on the front."},
+  {id:'c1',cat:'caps',name:"Azure Paw Cap",price:35,colors:['khaki'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c1-front.webp", "img/p/c1-back.webp", "img/p/c1-left.webp", "img/p/c1-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
+  {id:'c2',cat:'caps',name:"Lime Paw Cap",price:35,colors:['olive'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c2-front.webp", "img/p/c2-back.webp", "img/p/c2-left.webp", "img/p/c2-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
+  {id:'c3',cat:'caps',name:"Gold Paw Cap (Royal)",price:35,colors:['royal'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c3-front.webp", "img/p/c3-back.webp", "img/p/c3-left.webp", "img/p/c3-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
+  {id:'c4',cat:'caps',name:"Gold Paw Cap (Camo)",price:35,colors:['camo'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c4-front.webp", "img/p/c4-back.webp", "img/p/c4-left.webp", "img/p/c4-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
+  {id:'c5',cat:'caps',name:"Bronze Paw Cap (Dark Grey)",price:35,colors:['darkgrey'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c5-front.webp", "img/p/c5-back.webp", "img/p/c5-left.webp", "img/p/c5-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
+  {id:'c6',cat:'caps',name:"Ember Paw Cap (Black)",price:35,colors:['black'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c6-front.webp", "img/p/c6-back.webp", "img/p/c6-left.webp", "img/p/c6-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
 ];
 
 /* ============ GARMENT ART (placeholders on white) ============ */
@@ -832,17 +832,17 @@ const viewHtml = (p, v, c) => v.img ? `<img src="${v.img}" alt="${p.name}">` : g
 const CHARTS = {
   hoodies: {cols:['Size','Chest','Length','Sleeve'], rows:[['S',22,26,24],['M',23,27,25],['L',24,28,26],['XL',25.5,29,27],['XXL',27,30,28]]},
   tees:    {cols:['Size','Chest','Length'], rows:[['S',20,27],['M',21,28],['L',22,29],['XL',23.5,30],['XXL',25,31]]},
-  caps:    {cols:['Size','Circumference'], rows:[['One size','Fits most adult heads']]}
+  caps:    {cols:['Sizes','Head circumference'], rows:[['S/M · L/XL','22"–23⅞" (55.9–60.6 cm)']]}
 };
 function detailsOf(p){
   const hood = p.cat === 'hoodies', cap = p.cat === 'caps';
-  const long = cap ? `The ${p.name} is a structured closed-back cap with an embroidered paw on the front and a curved brim. Flexible fit, one size fits most.`
+  const long = cap ? `The ${p.name} is a structured Flexfit cap built to hold its shape. A 6-panel, mid-profile crown with a low-profile embroidery area carries a bold embroidered paw, finished with a curved visor and a silver undervisor. A stretch band gives a secure, comfortable fit in two sizes.`
     : hood ? `The ${p.name} is built from heavyweight brushed fleece that is soft on the inside and holds its shape outside. ${p.kind==='zip'?'A full-length zip makes it easy to layer.':'A structured hood and kangaroo pocket keep it simple and sharp.'} ${p.boxy?'A wider body and dropped shoulders give it a relaxed silhouette.':'Athletic cut through the chest and shoulders.'}`
     : `The ${p.name} is cut from dense cotton jersey with a ribbed collar that keeps its shape wash after wash. ${p.boxy?'Boxy body and dropped shoulders for a heavier drape.':'Straight, clean cut that sits sharp on its own or layered.'}`;
-  const bullets = cap ? ['Structured, closed-back crown','Embroidered paw on the front','Curved brim, flexible fit','Spot clean, air dry']
+  const bullets = cap ? ['63% polyester, 34% cotton, 3% spandex twill','Structured 6-panel, mid-profile crown','6 embroidered eyelets and silver undervisor','Stretch band, two sizes (22"–23⅞")']
     : hood ? ['Heavyweight brushed fleece (about 400 gsm)','Double-layer hood with flat drawcord','Ribbed cuffs and hem','Machine wash cold inside out, tumble low']
     : ['Heavyweight combed cotton jersey','Ribbed crew collar','Pre-shrunk, garment washed','Machine wash cold inside out, tumble low'];
-  const fit = cap ? 'One size' : p.boxy ? 'Relaxed, boxy fit. Size down for a closer fit.' : hood ? 'Athletic fit. True to size.' : 'Regular fit. True to size.';
+  const fit = cap ? 'Two sizes. Stretch band for a secure fit.' : p.boxy ? 'Relaxed, boxy fit. Size down for a closer fit.' : hood ? 'Athletic fit. True to size.' : 'Regular fit. True to size.';
   return {long, bullets, fit, chart: CHARTS[p.kind==='tee'?'tees':p.cat]};
 }
 
