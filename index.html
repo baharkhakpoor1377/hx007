@@ -616,6 +616,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .promo .pi:first-child{display:block !important;padding:0 !important;font-size:clamp(9px,2.7vw,11px) !important;font-weight:300 !important;letter-spacing:.01em !important;white-space:nowrap;text-align:center}
 .promo .pi::after{display:none !important}
 }
+
+@media (max-width:680px){
+.links .link{border:1px solid transparent !important;background:linear-gradient(#0b0b0d,#0b0b0d) padding-box,conic-gradient(from var(--a),#10388a 0deg,#2b6c99 70deg,#a8541a 180deg,#9a6a3c 230deg,#10388a 360deg) border-box !important;animation:spin 6s linear infinite !important;box-shadow:0 0 8px rgba(43,108,153,.28)}
+}
 </style>
 </head>
 <body><div id="ld"><div class="box"><div class="fr"><img id="ldim" alt=""></div><div class="brand">HØNTÉRX</div><div class="pct" id="ldpc">000</div><div class="bar"><i id="ldbr"></i></div></div></div>
@@ -791,6 +795,8 @@ const PRODUCTS = [
   {id:'c5',cat:'caps',name:"Bronze Paw Cap (Dark Grey)",price:35,colors:['darkgrey'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c5-front.webp", "img/p/c5-back.webp", "img/p/c5-left.webp", "img/p/c5-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
   {id:'c6',cat:'caps',name:"Ember Paw Cap (Black)",price:35,colors:['black'],kind:'cap',sizes:['S/M','L/XL'],imgs:["img/p/c6-front.webp", "img/p/c6-back.webp", "img/p/c6-left.webp", "img/p/c6-right.webp"],desc:"Structured Flexfit cap with a bold embroidered paw, curved visor and silver undervisor."},
 ];
+/* newest first */
+(function(){const N=['t17','t16','t15','t7','t14','h21','h20','h19','s3','s2','s1','c6','c5','c4','c3','c2','c1'];const r=id=>{const i=N.indexOf(id);return i<0?999:i};PRODUCTS.sort((x,y)=>r(x.id)-r(y.id))})();
 
 /* ============ GARMENT ART (placeholders on white) ============ */
 const inkFor = hex => { const n=parseInt(hex.slice(1),16),r=n>>16,g=(n>>8)&255,b=n&255; return (r*.3+g*.59+b*.11)>150 ? '#1b1b1d' : '#ececef'; };
