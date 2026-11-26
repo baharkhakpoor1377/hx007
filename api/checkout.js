@@ -32,7 +32,8 @@ const PRODUCTS = {
   j3: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Khaki)", price: 120 },
   j4: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket (Red Brown)", price: 120 },
   c1: { name: "H\u00f8nt\u00e9rx Azure Paw Cap", price: 35 },
-  c2: { name: "H\u00f8nt\u00e9rx Lime Paw Cap", price: 35 }
+  c2: { name: "H\u00f8nt\u00e9rx Lime Paw Cap", price: 35 },
+  c3: { name: "H\u00f8nt\u00e9rx Gold Paw Cap (Royal)", price: 35 }
 };
 const FREE_SHIPPING_OVER = 150; // free shipping over this subtotal
 const FLAT_SHIPPING = 12;       // otherwise this flat rate
