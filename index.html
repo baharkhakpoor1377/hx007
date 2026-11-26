@@ -770,7 +770,9 @@ const PRODUCTS = [
   {id:'j1',cat:'hoodies',name:"Sherpa Paw Jacket",price:120,colors:['black'],kind:'hoodie',imgs:["img/p/j1-front.webp", "img/p/j1-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
   {id:'j2',cat:'hoodies',name:"Sherpa Paw Jacket (Navy)",price:120,colors:['navy'],kind:'hoodie',imgs:["img/p/j2-front.webp", "img/p/j2-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
   {id:'j3',cat:'hoodies',name:"Sherpa Paw Jacket (Khaki)",price:120,colors:['khaki'],kind:'hoodie',imgs:["img/p/j3-front.webp", "img/p/j3-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
-  {id:'j4',cat:'hoodies',name:"Sherpa Paw Jacket (Red Brown)",price:120,colors:['redbrown'],kind:'hoodie',imgs:["img/p/j4-front.webp", "img/p/j4-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."}
+  {id:'j4',cat:'hoodies',name:"Sherpa Paw Jacket (Red Brown)",price:120,colors:['redbrown'],kind:'hoodie',imgs:["img/p/j4-front.webp", "img/p/j4-back.webp"],desc:"Relaxed-fit sherpa jacket with a full zip, zip pockets and an embroidered paw."},
+  {id:'c1',cat:'caps',name:"Azure Paw Cap",price:35,colors:['khaki'],kind:'cap',sizes:['One size'],imgs:["img/p/c1-front.webp", "img/p/c1-back.webp", "img/p/c1-left.webp", "img/p/c1-right.webp"],desc:"Structured closed-back cap with a curved brim and an embroidered paw on the front."},
+  {id:'c2',cat:'caps',name:"Lime Paw Cap",price:35,colors:['olive'],kind:'cap',sizes:['One size'],imgs:["img/p/c2-front.webp", "img/p/c2-back.webp", "img/p/c2-left.webp", "img/p/c2-right.webp"],desc:"Structured closed-back cap with a curved brim and an embroidered paw on the front."}
 ];
 
 /* ============ GARMENT ART (placeholders on white) ============ */
@@ -824,14 +826,14 @@ const viewHtml = (p, v, c) => v.img ? `<img src="${v.img}" alt="${p.name}">` : g
 const CHARTS = {
   hoodies: {cols:['Size','Chest','Length','Sleeve'], rows:[['S',22,26,24],['M',23,27,25],['L',24,28,26],['XL',25.5,29,27],['XXL',27,30,28]]},
   tees:    {cols:['Size','Chest','Length'], rows:[['S',20,27],['M',21,28],['L',22,29],['XL',23.5,30],['XXL',25,31]]},
-  caps:    {cols:['Size','Circumference'], rows:[['One size','21–24 in (adjustable strap)']]}
+  caps:    {cols:['Size','Circumference'], rows:[['One size','Fits most adult heads']]}
 };
 function detailsOf(p){
   const hood = p.cat === 'hoodies', cap = p.cat === 'caps';
-  const long = cap ? `The ${p.name} is a distressed dad cap with an embroidered front, a curved brim and a soft unstructured crown. One size fits most with the adjustable strap.`
+  const long = cap ? `The ${p.name} is a structured closed-back cap with an embroidered paw on the front and a curved brim. Flexible fit, one size fits most.`
     : hood ? `The ${p.name} is built from heavyweight brushed fleece that is soft on the inside and holds its shape outside. ${p.kind==='zip'?'A full-length zip makes it easy to layer.':'A structured hood and kangaroo pocket keep it simple and sharp.'} ${p.boxy?'A wider body and dropped shoulders give it a relaxed silhouette.':'Athletic cut through the chest and shoulders.'}`
     : `The ${p.name} is cut from dense cotton jersey with a ribbed collar that keeps its shape wash after wash. ${p.boxy?'Boxy body and dropped shoulders for a heavier drape.':'Straight, clean cut that sits sharp on its own or layered.'}`;
-  const bullets = cap ? ['Distressed cotton twill','Embroidered front','Adjustable strap, one size','Machine wash cold, hang dry']
+  const bullets = cap ? ['Structured, closed-back crown','Embroidered paw on the front','Curved brim, flexible fit','Spot clean, air dry']
     : hood ? ['Heavyweight brushed fleece (about 400 gsm)','Double-layer hood with flat drawcord','Ribbed cuffs and hem','Machine wash cold inside out, tumble low']
     : ['Heavyweight combed cotton jersey','Ribbed crew collar','Pre-shrunk, garment washed','Machine wash cold inside out, tumble low'];
   const fit = cap ? 'One size' : p.boxy ? 'Relaxed, boxy fit. Size down for a closer fit.' : hood ? 'Athletic fit. True to size.' : 'Regular fit. True to size.';
