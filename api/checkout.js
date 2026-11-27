@@ -36,6 +36,7 @@ const PRODUCTS = {
   t20: { name: "H\u00f8nt\u00e9rx Outlaw Oversized Tee", price: 45 },
   t21: { name: "H\u00f8nt\u00e9rx Sentinel Oversized Tee", price: 45 },
   t22: { name: "H\u00f8nt\u00e9rx Reign Oversized Tee", price: 45 },
+  t23: { name: "H\u00f8nt\u00e9rx Vanguard Oversized Tee", price: 45 },
   h19: { name: "H\u00f8nt\u00e9rx Midnight Raglan Hoodie", price: 85 },
   h21: { name: "H\u00f8nt\u00e9rx Gold Raglan Hoodie", price: 85 },
   j1: { name: "H\u00f8nt\u00e9rx Sherpa Paw Jacket", price: 120 },
